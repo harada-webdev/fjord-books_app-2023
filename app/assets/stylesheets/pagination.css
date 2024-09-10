@@ -3,7 +3,7 @@ pagination
 ****************/
 
 .pagination {
-    margin: 24px 0;
-    display: flex;
-    gap: var(--global-block-gap);
+  margin: 24px 0;
+  display: flex;
+  gap: var(--global-block-gap);
 }

@@ -1,0 +1,12 @@
+.index-users {
+  padding-bottom: 16px;
+  border-bottom: 1px solid #ccc;
+}
+
+.bio-container {
+  display: flex;
+}
+
+.bio-textarea {
+  white-space: pre-wrap;
+}

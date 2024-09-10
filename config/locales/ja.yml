@@ -194,6 +194,13 @@ ja:
       title_edit: "%{name}の編集"
       error: エラー
       validation_error: "%{errors}があるため、この%{name}は保存できませんでした"
+      edit_profile: "プロフィールの編集"
+      user_list: "ユーザー一覧"
+      logout: "ログアウト"
+      completed_logout: "ログアウトしました。"
+      greeting: "こんにちは %{recipient}様"
+
+
     pagination:
       first: '« 最初'
       last: '最後 »'

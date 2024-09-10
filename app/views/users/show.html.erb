@@ -1,0 +1,5 @@
+<div class="show-users">
+  <%= render @user %>
+</div>
+
+<%= link_to t('views.common.back', name: User.model_name.human.downcase), users_path %>
