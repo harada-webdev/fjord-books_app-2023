@@ -84,7 +84,9 @@ end
 gem 'carrierwave'
 gem 'devise'
 gem 'devise-i18n'
+gem 'email_validator'
 gem 'kaminari'
+gem 'strong_password', '~> 0.0.9'
 
 group :development do
   gem 'letter_opener_web', '~> 3.0'
