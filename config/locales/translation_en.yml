@@ -1,0 +1,33 @@
+en:
+  activerecord:
+    models:
+      book: Book
+    attributes:
+      book:
+        author: Author
+        memo: Memo
+        picture: Picture
+        title: Title
+  views:
+    common:
+      title:
+        list: "%{name}s List"
+        create: "Create %{name}"
+        edit: "Edit this %{name}"
+      links:
+        show: "Show this %{name}"
+        create: "Create %{name}"
+        edit: "Edit this %{name}"
+        update: "Update this %{name}"
+        destroy: "Delete this %{name}"
+        back: "Back to %{name}s"
+      action:
+        create: "Create %{name}"
+        edit: "Edit this %{name}"
+        destroy: "Delete this %{name}"
+  controllers:
+    common:
+      notice:
+        create: "%{name} was successfully created!"
+        update: "%{name} was successfully updated!"
+        destroy: "%{name} was successfully deleted!"

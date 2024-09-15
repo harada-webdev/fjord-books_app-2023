@@ -1,0 +1,31 @@
+ja:
+  activerecord:
+    models:
+      book: 本
+    attributes:
+      book:
+        author: 著者
+        memo: メモ
+        picture: 写真
+        title: タイトル
+  views:
+    common:
+      title:
+        list: "%{name}の一覧"
+        create: "%{name}の新規作成"
+        edit: "%{name}の編集"
+      links:
+        show: "この%{name}の詳細を見る"
+        create: "%{name}を新規作成する"
+        edit: "この%{name}の編集をする"
+        back: "%{name}の一覧に戻る"
+      action:
+        create: "新規作成する"
+        destroy: "削除する"
+        edit: "編集する"
+  controllers:
+    common:
+      notice:
+        create: "%{name}が作成されました。"
+        update: "%{name}が更新されました。"
+        destroy: "%{name}が削除されました。"
