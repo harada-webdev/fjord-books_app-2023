@@ -32,6 +32,10 @@
   </div>
 
   <div>
-    <%= form.submit %>
+    <% if book.new_record? %>
+      <%= form.submit t("views.common.action.create", name: Book.model_name.human.downcase) %>
+    <% else %>
+      <%= form.submit t("views.common.action.edit", name: Book.model_name.human.downcase) %>
+    <% end %>
   </div>
 <% end %>
