@@ -84,6 +84,7 @@ end
 
 gem 'carrierwave'
 gem 'devise'
+gem 'devise-i18n'
 gem 'email_validator'
 gem 'kaminari'
 gem 'strong_password', '~> 0.0.9'
