@@ -12,4 +12,6 @@ class User < ApplicationRecord
   validates :postal_code, presence: true, on: %i[create update]
   validates :postal_code, format: { with: /\A\d{3}-?\d{4}\z/ }, on: %i[create update], if: -> { postal_code.present? }
   validates :bio, presence: true, on: %i[create update]
+
+  paginates_per 3
 end

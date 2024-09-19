@@ -1,0 +1,12 @@
+<h1><%= t('views.common.title_index', name: User.model_name.human) %></h1>
+
+<% @users.each do |user| %>
+<%= render user %>
+  <p>
+    <%= link_to t('views.common.show', name: User.model_name.human), user %>
+  </p>
+<% end %>
+
+<%= paginate @users %>
+
+<%= link_to t('views.common.back', name: Book.model_name.human), books_path %>
