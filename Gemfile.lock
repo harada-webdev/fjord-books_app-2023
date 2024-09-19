@@ -111,6 +111,8 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    email_validator (2.2.4)
+      activemodel
     erb_lint (0.4.0)
       activesupport
       better_html (>= 2.0.1)
@@ -286,6 +288,7 @@ GEM
     ssrf_filter (1.1.1)
     stimulus-rails (1.2.1)
       railties (>= 6.0.0)
+    strong_password (0.0.10)
     thor (1.2.2)
     timeout (0.4.0)
     turbo-rails (1.4.0)
@@ -319,6 +322,7 @@ DEPENDENCIES
   carrierwave
   debug
   devise
+  email_validator
   erb_lint
   faker
   i18n_generators
@@ -335,6 +339,7 @@ DEPENDENCIES
   sprockets-rails
   sqlite3
   stimulus-rails
+  strong_password (~> 0.0.9)
   turbo-rails
   tzinfo-data
   web-console
