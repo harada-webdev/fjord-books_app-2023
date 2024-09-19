@@ -18,7 +18,7 @@
   <%= user.postal_code %>
 </p>
 
-<p>
+<p class="bio-container">
   <strong><%= User.human_attribute_name(:bio) %>:</strong>
-  <%= user.bio %>
+  <span class="bio-textarea"><%= user.bio %></span>
 </p>

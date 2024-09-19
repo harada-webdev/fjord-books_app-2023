@@ -1,0 +1,14 @@
+.user-container {
+  max-width: 500px;
+  border-bottom: 2px solid #ccc;
+  padding-bottom: 16px;
+}
+
+.bio-container {
+  display: flex;
+  gap: 6px
+}
+
+.bio-textarea {
+  white-space: pre-wrap;
+}
