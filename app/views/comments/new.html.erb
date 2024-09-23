@@ -1,0 +1,13 @@
+<h1><u>Post a comment on <%= @commentable.title %></u></h1>
+
+<p>
+  <strong>name:</strong>
+  <%= current_user.name_or_email %>
+</p>
+
+<%= form_with model: [@commentable, Comment.new] do |f| %>
+  <%= f.text_area :body, required: true %>
+  <%= f.submit "Post a comment" %>
+<% end %>
+
+<%= link_to "Back to comments", @commentable %>

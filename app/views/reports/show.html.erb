@@ -3,10 +3,16 @@
 <% if @report.user_id == current_user.id %>
   <p>
     <%= link_to t('views.common.edit', name: Report.model_name.human), edit_report_path(@report) %> |
+    <%= link_to 'Post a comment on this report', new_polymorphic_path([@report, Comment.new]) %> |
     <%= link_to t('views.common.back', name: Report.model_name.human), reports_path %>
   </p>
 
    <p><%= button_to t('views.common.destroy', name: Report.model_name.human), @report, method: :delete %></p>
 <% else %>
-  <p><%= link_to t('views.common.back', name: Report.model_name.human), reports_path %></p>
+  <p>
+    <%= link_to 'Post a comment on this report', new_polymorphic_path([@report, Comment.new]) %> |
+    <%= link_to t('views.common.back', name: Report.model_name.human), reports_path %>
+  </p>
 <% end %>
+
+<%= render 'comments/comment', comments: @report.comments.order(:id).page(params[:page]) %>
