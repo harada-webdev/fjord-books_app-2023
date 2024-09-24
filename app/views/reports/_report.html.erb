@@ -6,22 +6,22 @@
   <% end %>
 
   <p>
-    <strong>Date:</strong>
+    <strong><%= Report.human_attribute_name(:created_at) %>:</strong>
     <%= report.created_at.in_time_zone("Asia/Tokyo").strftime("%Y-%m-%d %H:%M:%S") %>
   </p>
 
   <p>
-    <strong>Name:</strong>
+    <strong><%= User.human_attribute_name(:name) %>:</strong>
     <%= report.user.name_or_email %>
   </p>
 
   <p>
-    <strong>Title:</strong>
+    <strong><%= Report.human_attribute_name(:title) %>:</strong>
     <%= report.title %>
   </p>
 
   <p>
-    <strong>Body:</strong>
+    <strong><%= Report.human_attribute_name(:body) %>:</strong>
     <%= report.body %>
   </p>
 
