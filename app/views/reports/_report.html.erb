@@ -1,4 +1,10 @@
 <div id="<%= dom_id report %>">
+  <% unless index.nil? %>
+  <p>
+    <strong><u><%= index + 1 + (@reports.current_page - 1) * @reports.limit_value %></u></strong>
+  </p>
+  <% end %>
+
   <p>
     <strong>Date:</strong>
     <%= report.created_at.in_time_zone("Asia/Tokyo").strftime("%Y-%m-%d %H:%M:%S") %>

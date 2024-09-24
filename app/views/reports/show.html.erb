@@ -1,4 +1,4 @@
-<%= render @report %>
+<%= render @report, index: nil %>
 
 <% if @report.user_id == current_user.id %>
   <p><%= link_to "Edit this report", edit_report_path(@report) %> | <%= link_to "Back to reports", reports_path %></p>
