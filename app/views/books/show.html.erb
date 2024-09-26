@@ -12,4 +12,4 @@
   <%= button_to t('views.common.destroy', name: Book.model_name.human.downcase), @book, method: :delete %>
 </nav>
 
-<%= render 'comments/comment', comments: @book.comments.order(:id).page(params[:page]) %>
+<%= render 'comments/comment', commentable: @report, comments: @book.comments.order(:id).page(params[:page]) %>

@@ -15,4 +15,4 @@
   </p>
 <% end %>
 
-<%= render 'comments/comment', comments: @report.comments.order(:id).page(params[:page]) %>
+<%= render 'comments/comment', commentable: @report, comments: @report.comments.order(:id).page(params[:page]) %>
