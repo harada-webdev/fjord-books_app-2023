@@ -8,7 +8,7 @@ ja:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
         password: 
-          password_strength: "の強度が不十分です"
+          include_specified_characters: "は半角・全角英文字、数字のみをそれぞれ含めて構成するようにしてください"
   date:
     abbr_day_names:
     - 日

@@ -6,7 +6,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  validates :password, password_strength: true, on: %i[create update], if: -> { password.present? }
+  validates :password, format: { with: /\A(?=.*?[a-z])(?=.*?[A-Z])(?=.*?\d)[a-zA-Z\d]+\z/, on: %i[create update],
+                                 message: I18n.t('activerecord.errors.messages.password.include_specified_characters') },
+                       if: -> { password.present? }
   validates :name, presence: true, on: %i[create update]
   validates :address, presence: true, on: %i[create update]
   validates :postal_code, presence: true, on: %i[create update]
