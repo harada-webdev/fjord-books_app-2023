@@ -13,3 +13,12 @@
  *= require_tree .
  *= require_self
  */
+
+.textarea-container {
+  display: flex;
+  gap: 8px
+}
+
+.textarea {
+  white-space: pre-wrap;
+}

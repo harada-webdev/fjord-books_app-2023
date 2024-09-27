@@ -1,6 +1,7 @@
 <h3><u><%= t('views.common.section', name: Comment.model_name.human) %></u></h3>
 <% if comments.any? %>
   <% comments.each_with_index do |comment, index| %>
+  <div class="comment-container">
   <p>
     <strong><u><%= index + 1 + (comments.current_page - 1) * comments.limit_value %></u></strong>
   </p>
@@ -15,9 +16,9 @@
     <%= comment.user.name_or_email %>
   </p>
 
-  <p>
+  <p class="textarea-container">
     <strong><%= Comment.human_attribute_name(:body) %>:</strong>
-    <%= comment.body %>
+    <span class="textarea"><%= comment.body %></span>
   </p>
 
   <p>
@@ -26,6 +27,7 @@
       <%= button_to t('views.common.destroy', name: Comment.model_name.human), polymorphic_path([commentable, comment]), method: :delete %>
     <% end %>
   </p>
+  </div>
   <% end %>
   <%= paginate comments %>
 <% else %>
