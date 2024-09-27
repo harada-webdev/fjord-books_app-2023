@@ -1,9 +1,9 @@
-<h1>Edit this comment</h1>
+<h1><%= t('views.common.title_edit', name: Comment.model_name.human) %></h1>
 
 <%= form_with model: [@commentable, @comment] do |form| %>
   <% if @comment.errors.any? %>
     <div style="color: red">
-      <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this report from being saved:</h2>
+      <h2><%= t('views.common.validation_error', errors: i18n_error_count(@comment.errors.count), name: Comment.model_name.human) %>:</h2>
 
       <ul>
         <% @comment.errors.each do |error| %>
@@ -13,9 +13,9 @@
     </div>
   <% end %>
 
-  <%= form.label :body, "body" %>
+  <%= form.label :body, Comment.human_attribute_name(:body) %>
   <%= form.text_area :body, required: true %>
-  <%= form.submit "Update this comment" %>
+  <%= form.submit %>
 <% end %>
 
-<%= link_to "Back to comments", @commentable %>
+<%= link_to t('views.common.back', name: Comment.model_name.human), @commentable %>

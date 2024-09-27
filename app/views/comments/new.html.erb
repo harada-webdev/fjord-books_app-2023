@@ -1,14 +1,14 @@
-<h1><u>Post a comment on <%= @commentable.title %></u></h1>
+<h1><u><%= t('views.common.post_on', name: @commentable.title, message: Comment.model_name.human) %></u></h1>
 
 <p>
-  <strong>name:</strong>
+  <strong><%= User.human_attribute_name(:name) %></strong>
   <%= current_user.name_or_email %>
 </p>
 
 <%= form_with model: [@commentable, @comment] do |f| %>
   <% if @comment.errors.any? %>
     <div style="color: red">
-      <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this report from being saved:</h2>
+      <h2><%= t('views.common.validation_error', errors: i18n_error_count(@comment.errors.count), name: Comment.model_name.human) %>:</h2>
 
       <ul>
         <% @comment.errors.each do |error| %>
@@ -19,7 +19,7 @@
   <% end %>
 
   <%= f.text_area :body, required: true %>
-  <%= f.submit "Post a comment" %>
+  <%= f.submit t('views.common.post') %>
 <% end %>
 
-<%= link_to "Back to comments", @commentable %>
+<%= link_to t('views.common.back', name: Comment.model_name.human), @commentable %>
