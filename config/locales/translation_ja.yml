@@ -14,7 +14,7 @@ ja:
         name: 名前
         address: 住所
         postal_code: 郵便番号
-        bio: 自己紹介
+        biography: 自己紹介
   devise:
     sessions:
       new:

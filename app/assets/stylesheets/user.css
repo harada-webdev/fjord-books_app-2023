@@ -4,11 +4,11 @@
   padding-bottom: 16px;
 }
 
-.bio-container {
+.biography-container {
   display: flex;
   gap: 6px
 }
 
-.bio-textarea {
+.biography-textarea {
   white-space: pre-wrap;
 }
