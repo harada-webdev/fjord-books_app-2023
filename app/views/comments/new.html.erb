@@ -5,7 +5,19 @@
   <%= current_user.name_or_email %>
 </p>
 
-<%= form_with model: [@commentable, Comment.new] do |f| %>
+<%= form_with model: [@commentable, @comment] do |f| %>
+  <% if @comment.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this report from being saved:</h2>
+
+      <ul>
+        <% @comment.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   <%= f.text_area :body, required: true %>
   <%= f.submit "Post a comment" %>
 <% end %>

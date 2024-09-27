@@ -3,7 +3,9 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: %i[edit update destroy]
 
-  def new; end
+  def new
+    @comment = Comment.new
+  end
 
   def edit; end
 
@@ -11,15 +13,19 @@ class CommentsController < ApplicationController
     @comment = @commentable.comments.build(comment_params)
     @comment.user = current_user
 
-    return unless @comment.save
-
-    redirect_to @commentable, notice: 'Comment was successfully created'
+    if @comment.save
+      redirect_to @commentable, notice: 'Comment was successfully created.'
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def update
-    return unless @comment.update(comment_params)
-
-    redirect_to @commentable, notice: 'Comment was successfully updated.'
+    if @comment.update(comment_params)
+      redirect_to @commentable, notice: 'Comment was successfully updated.'
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   def destroy
