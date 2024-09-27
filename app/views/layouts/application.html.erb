@@ -11,6 +11,15 @@
   </head>
 
   <body class="<%= params[:action] %>">
+  <% if user_signed_in? %>
+    <%= t('views.common.greeting', name: current_user.name) %> |
+    <%= link_to t('views.common.title_index', name: Book.model_name.human), books_path %> |
+    <%= link_to t('views.common.title_index', name: User.model_name.human), users_path %> |
+    <%= link_to t('views.common.edit', name: User.model_name.human), edit_user_registration_path %> |
+    <%= link_to t('devise.sessions.new.sign_out'), destroy_user_session_path, data: { turbo_method: :delete } %> |
+  <% end %>
+  <p style="color: green"><%= notice if notice %></p>
+  <p style="color: red"><%= alert if alert %></p>
     <%= yield %>
   </body>
 </html>
