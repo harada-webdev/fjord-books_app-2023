@@ -3,7 +3,7 @@ Devise
 ****************/
 
 .field > br {
-    display: block;
+    display: none;
 }
 
 .field_with_errors {
