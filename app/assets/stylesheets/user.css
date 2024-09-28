@@ -1,0 +1,14 @@
+.user-container {
+  max-width: 500px;
+  border-bottom: 2px solid #ccc;
+  padding-bottom: 16px;
+}
+
+.biography-container {
+  display: flex;
+  gap: 6px
+}
+
+.biography-textarea {
+  white-space: pre-wrap;
+}
