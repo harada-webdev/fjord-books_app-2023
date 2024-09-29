@@ -11,10 +11,9 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :user_id, style: "display: block" %>
-    <%= form.text_field :user_id %>
-  </div>
+  <p>
+    <strong>Name: <%= current_user.name %></strong>
+  </p>
 
   <div>
     <%= form.label :title, style: "display: block" %>
