@@ -1,0 +1,24 @@
+<h3><u>Comment section</u></h3>
+
+<% if comments.any? %>
+  <% comments.each do |comment| %>
+  <p>
+    <strong>Name:</strong>
+    <%= comment.user.name_or_email %>
+  </p>
+
+  <p>
+    <strong>Date:</strong>
+    <%= l(comment.created_at) %>
+  </p>
+
+  <p>
+    <strong>Body:</strong>
+    <%= comment.body %>
+  </p>
+  <% end %>
+
+  <%= paginate comments %>
+<% else %>
+  <p>No comments posted yet</p>
+<% end %>
