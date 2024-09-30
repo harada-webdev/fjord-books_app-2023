@@ -1,22 +1,19 @@
-<div id="<%= dom_id report %>">
-  <p>
-    <strong><%= User.human_attribute_name(:name) %>:</strong>
-    <%= report.user.name_or_email %>
-  </p>
+<p>
+  <strong><%= User.human_attribute_name(:name) %>:</strong>
+  <%= report.user.name_or_email %>
+</p>
 
-  <p>
-    <strong><%= Report.human_attribute_name(:created_at) %>:</strong>
-    <%= l(report.created_at) %>
-  </p>
+<p>
+  <strong><%= Report.human_attribute_name(:created_at) %>:</strong>
+  <%= l(report.created_at) %>
+</p>
 
-  <p>
-    <strong><%= Report.human_attribute_name(:title) %>:</strong>
-    <%= report.title %>
-  </p>
+<p>
+  <strong><%= Report.human_attribute_name(:title) %>:</strong>
+  <%= report.title %>
+</p>
 
-  <p>
-    <strong><%= Report.human_attribute_name(:body) %>:</strong>
-    <%= report.body %>
-  </p>
-
-</div>
+<p class="textarea-container">
+  <strong><%= Report.human_attribute_name(:body) %>:</strong>
+  <span class="textarea"><%= report.body %></span>
+</p>

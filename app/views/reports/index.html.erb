@@ -1,13 +1,13 @@
 <h1><%= t('views.common.title_index', name: Report.model_name.human) %></h1>
 
-<div id="reports">
-  <% @reports.each do |report| %>
+<% @reports.each do |report| %>
+  <div class="report-container">
     <%= render report %>
     <p>
       <%= link_to t('views.common.show', name: Report.model_name.human), report %>
     </p>
-  <% end %>
-</div>
+  </div>
+<% end %>
 
 <%= paginate @reports %>
 
