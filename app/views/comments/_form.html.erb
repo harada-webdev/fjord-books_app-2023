@@ -1,11 +1,18 @@
-<h3><u>Post a comment</u></h3>
+<% if comment.new_record? %>
+  <h3><u>Post a comment</u></h3>
+<% end %>
 
 <p>
   <strong>name:</strong>
   <%= current_user.name_or_email %>
 </p>
 
-<%= form_with model: [commentable, Comment.new] do |f| %>
+<%= form_with model: [commentable, comment] do |f| %>
   <%= f.text_area :body, required: true %>
-  <%= f.submit "Post a comment" %>
+
+  <% if comment.new_record? %>
+    <%= f.submit "Post a comment" %>
+  <% else %>
+    <%= f.submit "Update this comment" %>
+  <% end %>
 <% end %>

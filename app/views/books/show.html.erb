@@ -12,4 +12,4 @@
 </nav>
 
 <%= render 'comments/comment', commentable: @book, comments: @book.comments.order(:id).page(params[:page]) %>
-<%= render 'comments/form', commentable: @book %>
+<%= render 'comments/form', commentable: @book, comment: Comment.new %>

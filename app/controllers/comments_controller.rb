@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
 class CommentsController < ApplicationController
-  before_action :set_comment, only: %i[destroy]
+  before_action :set_comment, only: %i[edit update destroy]
+
+  def edit; end
 
   def create
     @comment = @commentable.comments.build(comment_params)
@@ -9,6 +11,12 @@ class CommentsController < ApplicationController
     @comment.save
 
     redirect_to @commentable, notice: 'Comment was successfully created.'
+  end
+
+  def update
+    @comment.update(comment_params)
+
+    redirect_to @commentable, notice: 'Comment was successfully updated.'
   end
 
   def destroy

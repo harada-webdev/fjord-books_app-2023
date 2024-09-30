@@ -19,6 +19,7 @@
 
   <p>
     <% if comment.user == current_user %>
+      <%= link_to "Edit this comment", edit_polymorphic_path([commentable, comment]) %>
       <%= button_to "Destroy this comment", polymorphic_path([commentable, comment]), method: :delete %>
     <% end %>
   </p>

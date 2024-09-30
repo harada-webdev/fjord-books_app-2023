@@ -11,4 +11,4 @@
 <% end %>
 
 <%= render 'comments/comment', commentable: @report, comments: @report.comments.order(:id).page(params[:page]) %>
-<%= render 'comments/form', commentable: @report %>
+<%= render 'comments/form', commentable: @report, comment: Comment.new  %>
