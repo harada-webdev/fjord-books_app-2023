@@ -1,5 +1,5 @@
-<h1>Edit this comment</h1>
+<h1><%= t('views.common.title_edit', name: Comment.model_name.human) %></h1>
 
 <%= render 'form', commentable: @commentable, comment: @comment %>
 
-<%= link_to "Back to comments", @commentable %>
+<%= link_to t('views.common.back', name: Comment.model_name.human), @commentable %>

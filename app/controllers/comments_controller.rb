@@ -10,19 +10,19 @@ class CommentsController < ApplicationController
     @comment.user = current_user
     @comment.save
 
-    redirect_to @commentable, notice: 'Comment was successfully created.'
+    redirect_to @commentable, notice: t('controllers.common.notice_create', name: Comment.model_name.human)
   end
 
   def update
     @comment.update(comment_params)
 
-    redirect_to @commentable, notice: 'Comment was successfully updated.'
+    redirect_to @commentable, notice: t('controllers.common.notice_update', name: Comment.model_name.human)
   end
 
   def destroy
     @comment.destroy
 
-    redirect_to @commentable, notice: 'Comment was successfully destroyed.'
+    redirect_to @commentable, notice: t('controllers.common.notice_destroy', name: Comment.model_name.human)
   end
 
   private

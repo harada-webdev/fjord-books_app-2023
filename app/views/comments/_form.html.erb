@@ -1,9 +1,9 @@
 <% if comment.new_record? %>
-  <h3><u>Post a comment</u></h3>
+  <h3><u><%= t('views.common.post_a_message', name: Comment.model_name.human) %></u></h3>
 <% end %>
 
 <p>
-  <strong>name:</strong>
+  <strong><%= User.human_attribute_name(:name) %></strong>
   <%= current_user.name_or_email %>
 </p>
 
@@ -11,8 +11,8 @@
   <%= f.text_area :body, required: true %>
 
   <% if comment.new_record? %>
-    <%= f.submit "Post a comment" %>
+    <%= f.submit t('views.common.post') %>
   <% else %>
-    <%= f.submit "Update this comment" %>
+    <%= f.submit %>
   <% end %>
 <% end %>

@@ -1,31 +1,31 @@
-<h3><u>Comment section</u></h3>
+<h3><u><%= t('views.common.section', name: Comment.model_name.human) %></u></h3>
 
 <% if comments.any? %>
   <% comments.each do |comment| %>
   <p>
-    <strong>Name:</strong>
+    <strong><%= User.human_attribute_name(:name) %>:</strong>
     <%= comment.user.name_or_email %>
   </p>
 
   <p>
-    <strong>Date:</strong>
+    <strong><%= Comment.human_attribute_name(:created_at) %>:</strong>
     <%= l(comment.created_at) %>
   </p>
 
   <p>
-    <strong>Body:</strong>
+    <strong><%= Comment.human_attribute_name(:body) %>:</strong>
     <%= comment.body %>
   </p>
 
   <p>
     <% if comment.user == current_user %>
-      <%= link_to "Edit this comment", edit_polymorphic_path([commentable, comment]) %>
-      <%= button_to "Destroy this comment", polymorphic_path([commentable, comment]), method: :delete %>
+      <%= link_to t('views.common.edit', name: Comment.model_name.human), edit_polymorphic_path([commentable, comment]) %>
+      <%= button_to t('views.common.destroy', name: Comment.model_name.human), polymorphic_path([commentable, comment]), method: :delete %>
     <% end %>
   </p>
   <% end %>
 
   <%= paginate comments %>
 <% else %>
-  <p>No comments posted yet</p>
+  <p><%= t('views.common.not_posted_yet', name: Comment.model_name.human) %></p>
 <% end %>
