@@ -10,5 +10,5 @@
   <p><%= link_to t('views.common.back', name: Report.model_name.human), reports_path %></p>
 <% end %>
 
-<%= render 'comments/comment', comments: @report.comments.order(:id).page(params[:page]) %>
+<%= render 'comments/comment', commentable: @report, comments: @report.comments.order(:id).page(params[:page]) %>
 <%= render 'comments/form', commentable: @report %>

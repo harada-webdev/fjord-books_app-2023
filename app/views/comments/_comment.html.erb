@@ -16,6 +16,12 @@
     <strong>Body:</strong>
     <%= comment.body %>
   </p>
+
+  <p>
+    <% if comment.user == current_user %>
+      <%= button_to "Destroy this comment", polymorphic_path([commentable, comment]), method: :delete %>
+    <% end %>
+  </p>
   <% end %>
 
   <%= paginate comments %>
