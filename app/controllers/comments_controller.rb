@@ -2,6 +2,7 @@
 
 class CommentsController < ApplicationController
   before_action :set_comment, only: %i[edit update destroy]
+  before_action :deny_access_unless_owner, only: %i[edit update destroy]
 
   def edit; end
 
@@ -33,5 +34,9 @@ class CommentsController < ApplicationController
 
   def set_comment
     @comment = Comment.find(params[:id])
+  end
+
+  def deny_access_unless_owner
+    redirect_to request.referer || root_path, alert: t('errors.messages.deny_access') and return unless own_resource?(@comment)
   end
 end

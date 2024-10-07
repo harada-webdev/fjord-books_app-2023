@@ -3,6 +3,7 @@
 class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   before_action :configure_permitted_parameters, if: :devise_controller?
+  helper_method :own_resource?
 
   protected
 
@@ -24,5 +25,9 @@ class ApplicationController < ActionController::Base
 
   def signed_in_root_path(_resource_or_scope)
     user_path(current_user)
+  end
+
+  def own_resource?(resource)
+    resource.user == current_user
   end
 end
