@@ -1,0 +1,19 @@
+<%= render @report %>
+
+<% if current_user.own_resource?(@report) %>
+  <p>
+    <%= link_to t('views.common.edit', name: Report.model_name.human), edit_report_path(@report) %> |
+    <%= link_to t('views.common.back', name: Report.model_name.human), reports_path %>
+    <%= button_to t('views.common.destroy', name: Report.model_name.human), @report, method: :delete %>
+  </p>
+<% else %>
+  <p><%= link_to t('views.common.back', name: Report.model_name.human), reports_path %></p>
+<% end %>
+
+<div class="comment-section">
+  <%= render 'comments/comment', commentable: @report, comments: @report.comments.order(:id).page(params[:page]) %>
+</div>
+
+<div class="comment-form">
+  <%= render 'comments/form', commentable: @report, comment: Comment.new %>
+</div>
