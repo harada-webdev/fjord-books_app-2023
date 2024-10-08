@@ -19,7 +19,7 @@
       </p>
 
       <p>
-        <% if own_resource?(comment) %>
+        <% if current_user.own_resource?(comment) %>
           <%= link_to t('views.common.edit', name: Comment.model_name.human), edit_polymorphic_path([commentable, comment]) %>
           <%= button_to t('views.common.destroy', name: Comment.model_name.human), polymorphic_path([commentable, comment]), method: :delete %>
         <% end %>

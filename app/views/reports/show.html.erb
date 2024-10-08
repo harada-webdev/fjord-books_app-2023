@@ -1,6 +1,6 @@
 <%= render @report %>
 
-<% if own_resource?(@report) %>
+<% if current_user.own_resource?(@report) %>
   <p>
     <%= link_to t('views.common.edit', name: Report.model_name.human), edit_report_path(@report) %> |
     <%= link_to t('views.common.back', name: Report.model_name.human), reports_path %>
