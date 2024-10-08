@@ -1,11 +1,15 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+alice:
+  user: alice
+  title: Ruby
+  content: Rubyの本を読みました
+  created_at: 2024-10-9
 
-one:
-  user: one
-  title: MyString
-  content: MyText
+bob:
+  user: bob
+  title: データベース
+  content: データベースの本を読みました
 
-two:
-  user: two
-  title: MyString
-  content: MyText
+carol:
+  user: carol
+  title: Web技術
+  content: Web技術に関する本を読みました
