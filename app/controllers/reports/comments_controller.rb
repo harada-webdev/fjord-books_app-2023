@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Reports::CommentsController < CommentsController
-  before_action :set_commentable
+  prepend_before_action :set_commentable
 
   private
 

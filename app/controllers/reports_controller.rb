@@ -61,6 +61,6 @@ class ReportsController < ApplicationController
   end
 
   def deny_access_unless_owner
-    redirect_to request.referer || root_path, alert: t('errors.messages.deny_access') and return unless current_user.own_resource?(@report)
+    redirect_to @report, alert: t('errors.messages.deny_access') and return unless current_user.own_resource?(@report)
   end
 end
