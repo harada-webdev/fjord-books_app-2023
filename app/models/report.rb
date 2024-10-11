@@ -27,8 +27,8 @@ class Report < ApplicationRecord
 
   def create_mentioned_reports
     active_report_mentions.destroy_all
-    valid_ids = content.scan(%r{http://localhost:3000/reports/(\d+)}).uniq.flatten.map(&:to_i).reject { |id| id == self.id }
-    mentioned_reports = Report.where(id: valid_ids)
+    valid_ids = content.scan(%r{(?<=http://localhost:3000/reports/)\d+}).uniq.map(&:to_i)
+    mentioned_reports = Report.where(id: valid_ids).where.not(id:)
     mentioned_reports.each { |mentioned_report| active_report_mentions.create(mentioned: mentioned_report) }
   end
 end
