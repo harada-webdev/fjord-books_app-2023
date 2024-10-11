@@ -1,6 +1,6 @@
 <p>
   <strong><%= t('.mention') %>:</strong>
-    <% if (mentioned_reports = report.mentioned_reports.order(:id).includes(mentioned_reports: :user).presence) %>
+    <% if mentioned_reports.exists? %>
       <ul>
         <% mentioned_reports.each do |mentioned_report| %>
           <li>
