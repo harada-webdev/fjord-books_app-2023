@@ -14,8 +14,7 @@ class ReportTest < ActiveSupport::TestCase
 
   test 'created_on' do
     alice_report = reports(:alice)
-
-    assert_equal Date.new(2024, 10, 9), alice_report.created_on
+    assert_equal Date.current, alice_report.created_on
   end
 
   test 'save_mentions' do
