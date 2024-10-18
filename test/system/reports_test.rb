@@ -44,5 +44,7 @@ class ReportsTest < ApplicationSystemTestCase
     click_button 'この日報を削除'
 
     assert_text '日報が削除されました。'
+    assert_no_text 'Ruby'
+    assert_no_text 'Rubyの本を読みました'
   end
 end
