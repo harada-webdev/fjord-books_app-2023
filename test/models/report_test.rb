@@ -22,7 +22,7 @@ class ReportTest < ActiveSupport::TestCase
     bob_report = reports(:bob)
     carol_report = reports(:carol)
 
-    alice_report = alice.reports.create(title: 'create_mention', content: <<~TEXT)
+    alice_report = alice.reports.create!(title: 'create_mention', content: <<~TEXT)
       #他人の日報のURLを書くと、その日報に言及したことになる
         "http://localhost:3000/reports/#{bob_report.id}"
 
@@ -31,10 +31,12 @@ class ReportTest < ActiveSupport::TestCase
         "http://localhost:3000/reports/#{carol_report.id}"
     TEXT
 
-    assert_includes alice_report.mentioning_reports, bob_report
-    assert_equal 1, carol_report.mentioned_reports.size
+    [alice_report, bob_report, carol_report].each(&:reload)
+    assert_equal [bob_report, carol_report].sort, alice_report.mentioning_reports.sort
+    assert_equal [alice_report], bob_report.mentioned_reports
+    assert_equal [alice_report], carol_report.mentioned_reports
 
-    alice_report.update(title: 'update_mention', content: <<~TEXT)
+    alice_report.update!(title: 'update_mention', content: <<~TEXT)
       #自分が今書いている日報には言及できない
         "http://localhost:3000/reports/#{alice_report.id}"
 
@@ -45,8 +47,12 @@ class ReportTest < ActiveSupport::TestCase
         "http://localhost:3000/reports/#{carol_report.id}"
     TEXT
 
-    assert_empty alice_report.mentioned_reports
-    assert_empty bob_report.mentioned_reports
-    assert_empty carol_report.mentioned_reports if alice_report.destroy
+    [alice_report, bob_report, carol_report].each(&:reload)
+    assert_equal [carol_report], alice_report.mentioning_reports
+    assert_equal [], alice_report.mentioned_reports
+    assert_equal [], bob_report.mentioned_reports
+
+    alice_report.destroy
+    assert_equal [], carol_report.reload.mentioned_reports
   end
 end
