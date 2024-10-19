@@ -17,6 +17,8 @@ class ReportsTest < ApplicationSystemTestCase
     visit reports_url
     click_on '日報の新規作成'
 
+    click_button '登録する'
+    assert_text '2件のエラーがあるため、この日報は保存できませんでした'
     fill_in 'タイトル', with: 'HTMLとCSS'
     fill_in '内容', with: 'HTMLとCSSの本を読みました'
     click_button '登録する'
@@ -30,6 +32,9 @@ class ReportsTest < ApplicationSystemTestCase
     visit report_url(@report)
     click_on 'この日報を編集'
 
+    fill_in 'タイトル', with: ''
+    click_button '更新する'
+    assert_text '1件のエラーがあるため、この日報は保存できませんでした'
     fill_in 'タイトル', with: 'Rails'
     fill_in '内容', with: 'Railsの本を読みました'
     click_button '更新する'
