@@ -50,6 +50,7 @@ class ReportTest < ActiveSupport::TestCase
 
     [alice_report, bob_report, carol_report].each(&:reload)
     assert_equal [carol_report], alice_report.mentioning_reports
+    assert_equal [alice_report], carol_report.mentioned_reports
     assert_equal [], alice_report.mentioned_reports
     assert_equal [], bob_report.mentioned_reports
 
