@@ -14,8 +14,8 @@ class ReportTest < ActiveSupport::TestCase
 
   test 'created_on' do
     alice_report = reports(:alice)
-    alice_report.created_at = Time.zone.local(2024, 10, 9, 0, 0, 0)
-    assert_equal Date.new(2024, 10, 9), alice_report.created_on
+    alice_report.created_at = '2024-10-09 10:30'.in_time_zone
+    assert_equal '2024-10-09'.to_date, alice_report.created_on
   end
 
   test 'save_mentions' do
