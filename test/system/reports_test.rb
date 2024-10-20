@@ -24,7 +24,7 @@ class ReportsTest < ApplicationSystemTestCase
     click_button '登録する'
 
     assert_text '日報が作成されました。'
-    assert_text 'HTMLとCSS'
+    assert_text 'タイトル: HTMLとCSS'
     assert_text 'HTMLとCSSの本を読みました'
   end
 
@@ -40,16 +40,16 @@ class ReportsTest < ApplicationSystemTestCase
     click_button '更新する'
 
     assert_text '日報が更新されました。'
-    assert_text 'Rails'
+    assert_text 'タイトル: Rails'
     assert_text 'Railsの本を読みました'
   end
 
   test 'should destroy Report' do
     visit report_url(@report)
-    assert_text 'Ruby'
+    assert_text 'タイトル: Ruby'
     click_button 'この日報を削除'
 
     assert_text '日報が削除されました。'
-    assert_no_text 'Ruby'
+    assert_no_text 'タイトル: Ruby'
   end
 end
